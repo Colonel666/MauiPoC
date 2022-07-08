@@ -1,4 +1,7 @@
-﻿namespace MauiAppPoC;
+﻿using MauiAppPoC.SQLRepository;
+using Microsoft.Maui.Controls;
+
+namespace MauiAppPoC;
 
 public partial class MainPage : ContentPage
 {
@@ -7,7 +10,17 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
-	}
+        var repository = new AccountRepository("chinook.db");
+		//var bla = new CollectionView();
+      //  bla.ItemsSource = repository.GetAccounts();
+		stack.Text = "testinggg";
+       collection1.ItemsSource = repository.GetAccounts();
+		Account firstAccount = new Account { Id = 1, Balance = 1, Email = "bla@bla.com" };
+		repository.CreateAccount(firstAccount);
+      //var bla = repository.GetAccounts();
+       var bla = repository.GetArtists();
+        collection1.ItemsSource = bla;
+    }
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
@@ -20,5 +33,6 @@ public partial class MainPage : ContentPage
 
 		SemanticScreenReader.Announce(CounterBtn.Text);
 	}
+
 }
 

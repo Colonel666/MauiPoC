@@ -34,8 +34,33 @@
                 SemanticProperties.Hint="Counts the number of times you click"
                 Clicked="OnCounterClicked"
                 HorizontalOptions="Center" />
+            
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Existing SQLite DB Sample" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
 
+            <Label
+    Text="Hello"
+    BackgroundColor="Silver"
+    VerticalOptions="Center"
+    HorizontalOptions="Center" 
+                x:Name="stack"
+    FontSize="40"/>
+
+            <CollectionView x:Name="collection1" SelectionMode="Single">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <VerticalStackLayout>
+                            <Label Text="{Binding Email}" />
+                            <Label Text="{Binding Balance}" />
+                            <Label Text="{Binding ArtistsId}" />
+                            <Label Text="{Binding Name}" />
+                        </VerticalStackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
         </VerticalStackLayout>
     </ScrollView>
- 
+
 </ContentPage>
